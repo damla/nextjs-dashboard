@@ -20,7 +20,7 @@
       {
         "newlinesBetween": "always",
         "groups": [
-          ["/^next/", "module"],
+          "/^next/",
           "/^@/styles/",
           "/^@/components/",
           "/^@/lib/",
@@ -44,5 +44,10 @@
         "allow": ["warn", "error"]
       }
     ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
