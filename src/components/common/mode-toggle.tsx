@@ -10,10 +10,9 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
 
-import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
-import * as React from 'react';
+import { MoonIcon, SunIcon } from 'lucide-react';
 
-export function ModeToggle() {
+export const ModeToggle = () => {
   const { setTheme } = useTheme();
 
   return (
@@ -32,4 +31,4 @@ export function ModeToggle() {
       </DropdownMenuContent>
     </DropdownMenu>
   );
-}
+};
