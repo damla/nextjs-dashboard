@@ -1,8 +1,10 @@
 'use client';
 
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 
+import { formatted, getVariant } from './helpers';
 import { TableActions } from './table-actions';
 import { Payment } from './types';
 
@@ -34,7 +36,14 @@ export const paymentsTableColumns: ColumnDef<Payment>[] = [
   {
     accessorKey: 'status',
     header: 'Status',
-    cell: ({ row }) => <div className="capitalize">{row.getValue('status')}</div>
+    cell: ({ row }) => (
+      <Badge
+        className="inline-flex w-20 items-center justify-center capitalize"
+        variant={getVariant(row.getValue('status'))}
+      >
+        {row.getValue('status')}
+      </Badge>
+    )
   },
   {
     accessorKey: 'email',
@@ -54,24 +63,13 @@ export const paymentsTableColumns: ColumnDef<Payment>[] = [
   {
     accessorKey: 'amount',
     header: () => <div className="text-right">Amount</div>,
-    cell: ({ row }) => {
-      const amount = parseFloat(row.getValue('amount'));
-
-      const formatted = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD'
-      }).format(amount);
-
-      return <div className="text-right font-medium">{formatted}</div>;
-    }
+    cell: ({ row }) => (
+      <div className="text-right font-medium">{formatted(row.getValue('amount'))}</div>
+    )
   },
   {
     id: 'actions',
     enableHiding: false,
-    cell: ({ row }) => {
-      const payment = row.original;
-
-      return <TableActions paymentId={payment.id} />;
-    }
+    cell: ({ row }) => <TableActions paymentId={row.original.id} />
   }
 ];
