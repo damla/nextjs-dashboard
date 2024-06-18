@@ -9,24 +9,22 @@ import {
   BreadcrumbSeparator
 } from '@/components/ui/breadcrumb';
 
+import { ROUTES } from '@/lib/routes';
+
 export const Breadcrumb = () => {
   return (
     <BreadcrumbSchadcn className="hidden md:flex">
       <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink asChild>
-            <Link href="#">Dashboard</Link>
+            <Link href={ROUTES.dashboard}>Dashboard</Link>
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink asChild>
-            <Link href="#">Orders</Link>
-          </BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbPage>Recent Orders</BreadcrumbPage>
+          <BreadcrumbPage>
+            <Link href={ROUTES.payments}>Payments</Link>
+          </BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </BreadcrumbSchadcn>

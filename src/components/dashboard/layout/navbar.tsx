@@ -14,7 +14,9 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
-import { Home, LineChart, Package, Package2, PanelLeft, ShoppingCart, Users2 } from 'lucide-react';
+import { ROUTES } from '@/lib/routes';
+
+import { Home, LineChart, Package2, PanelLeft, ShoppingCart } from 'lucide-react';
 
 export const Navbar = () => {
   return (
@@ -29,36 +31,22 @@ export const Navbar = () => {
         <SheetContent side="left" className="sm:max-w-xs">
           <nav className="grid gap-6 text-lg font-medium">
             <Link
-              href="#"
+              href={ROUTES.home}
               className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
             >
               <Package2 className="h-5 w-5 transition-all group-hover:scale-110" />
-              <span className="sr-only">Acme Inc</span>
+              <span className="sr-only">Dashboard App</span>
             </Link>
             <Link
-              href="#"
+              href={ROUTES.dashboard}
               className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
             >
               <Home className="h-5 w-5" />
               Dashboard
             </Link>
-            <Link href="#" className="flex items-center gap-4 px-2.5 text-foreground">
+            <Link href={ROUTES.payments} className="flex items-center gap-4 px-2.5 text-foreground">
               <ShoppingCart className="h-5 w-5" />
-              Orders
-            </Link>
-            <Link
-              href="#"
-              className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-            >
-              <Package className="h-5 w-5" />
-              Products
-            </Link>
-            <Link
-              href="#"
-              className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-            >
-              <Users2 className="h-5 w-5" />
-              Customers
+              Payments
             </Link>
             <Link
               href="#"
