@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   description: 'Dashboard application created with NextJS and schadcn/ui'
 };
 
-export default function RootLayout({
-  children
-}: Readonly<{
+type Props = Readonly<{
   children: React.ReactNode;
-}>) {
+}>;
+
+export default function RootLayout({ children }: Props) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>

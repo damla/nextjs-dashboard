@@ -1,3 +1,4 @@
+import { Main } from '@/components/dashboard/layout/main';
 import { Navbar } from '@/components/dashboard/layout/navbar';
 import { Sidebar } from '@/components/dashboard/layout/sidebar';
 import { Badge } from '@/components/ui/badge';
@@ -37,7 +38,7 @@ export default function Dashboard() {
       <Sidebar />
       <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
         <Navbar />
-        <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
+        <Main>
           <div className="grid auto-rows-max items-start gap-4 md:gap-8 lg:col-span-2">
             <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
               <Card className="sm:col-span-2" x-chunk="dashboard-05-chunk-0">
@@ -243,7 +244,7 @@ export default function Dashboard() {
               </TabsContent>
             </Tabs>
           </div>
-        </main>
+        </Main>
       </div>
     </div>
   );
