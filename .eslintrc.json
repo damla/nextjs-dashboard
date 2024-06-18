@@ -8,7 +8,6 @@
     "prettier"
   ],
   "plugins": ["react", "@typescript-eslint", "react-hooks", "eslint-plugin-import-helpers"],
-  "parser": "@typescript-eslint/parser",
   "rules": {
     "react-hooks/rules-of-hooks": 2,
     "react-hooks/exhaustive-deps": 1,
