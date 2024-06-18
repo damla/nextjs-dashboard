@@ -8,7 +8,7 @@ import '@/styles/globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'NextJS Dashboard',
+  title: 'NextJS Dashboard | Home',
   description: 'Dashboard application created with NextJS and schadcn/ui'
 };
 
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: Props) {
           enableSystem
           disableTransitionOnChange
         >
-          <main>{children}</main>
+          {children}
         </MainProvider>
       </body>
     </html>
