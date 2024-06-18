@@ -28,7 +28,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
-import { Input } from '@/components/ui/input';
+import { ModeToggle } from '@/components/ui/mode-toggle';
 import { Pagination, PaginationContent, PaginationItem } from '@/components/ui/pagination';
 import { Progress } from '@/components/ui/progress';
 import { Separator } from '@/components/ui/separator';
@@ -57,7 +57,6 @@ import {
   Package,
   Package2,
   PanelLeft,
-  Search,
   Settings,
   ShoppingCart,
   Truck,
@@ -226,12 +225,7 @@ export default function Dashboard() {
             </BreadcrumbList>
           </Breadcrumb>
           <div className="relative ml-auto flex-1 md:grow-0">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-            <Input
-              type="search"
-              placeholder="Search..."
-              className="w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[320px]"
-            />
+            <ModeToggle />
           </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
