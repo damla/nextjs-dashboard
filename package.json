@@ -4,18 +4,26 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npx prisma generate --no-engine && next build",
     "start": "next start",
     "lint": "next lint",
     "prettier:format": "prettier --write .",
     "prettier:check": "prettier --check \"**/*.{ts,tsx,json}\"",
     "eslint:format": "eslint src --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "migrate": "prisma migrate dev",
+    "postmigrate": "npx @snaplet/seed sync"
+  },
+  "prisma": {
+    "seed": "npx tsx prisma/seed/seed.ts"
   },
   "engines": {
     "node": ">=18.20.2"
   },
   "dependencies": {
+    "@paralleldrive/cuid2": "^2.2.2",
+    "@prisma/client": "^5.15.1",
+    "@prisma/extension-accelerate": "^1.1.0",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",
@@ -31,6 +39,7 @@
     "@tanstack/react-table": "^8.17.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "dotenv": "^16.4.5",
     "lucide-react": "^0.395.0",
     "next": "14.2.4",
     "next-themes": "^0.3.0",
@@ -40,6 +49,8 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@snaplet/copycat": "^5.0.0",
+    "@snaplet/seed": "^0.97.20",
     "@types/node": "^20.14.5",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
@@ -57,7 +68,9 @@
     "postcss": "^8.4.38",
     "prettier": "3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.5",
+    "prisma": "^5.15.1",
     "tailwindcss": "^3.4.4",
+    "tsx": "^4.15.6",
     "typescript": "^5.4.5"
   },
   "lint-staged": {
@@ -65,5 +78,8 @@
       "npm run prettier:format",
       "npm run eslint:format"
     ]
+  },
+  "@snaplet/seed": {
+    "config": "prisma/seed/seed.config.ts"
   }
 }

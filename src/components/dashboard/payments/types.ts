@@ -1,6 +1,6 @@
 export interface Payment {
   id: string;
-  amount: number;
+  amount: string;
   status: 'pending' | 'processing' | 'success' | 'failed';
   email: string;
 }
