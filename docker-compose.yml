@@ -1,8 +1,16 @@
+version: '3.8'
+
 services:
   postgres:
-    image: postgres:15-alpine
+    image: postgres:16-alpine
     ports:
-      - 5432:5432
+      - '5432:5432'
     environment:
       POSTGRES_DB: nextjs_dashboard_dev
       POSTGRES_HOST_AUTH_METHOD: trust
+      restart: unless-stopped
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
