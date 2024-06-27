@@ -15,13 +15,12 @@
     "postinstall": "prisma generate --no-engine && prisma migrate deploy"
   },
   "prisma": {
-    "seed": "npx tsx prisma/seed/seed.ts"
+    "seed": "npx tsx prisma/seed.ts"
   },
   "engines": {
     "node": ">=18.20.2"
   },
   "dependencies": {
-    "@paralleldrive/cuid2": "^2.2.2",
     "@prisma/client": "^5.15.1",
     "@prisma/extension-accelerate": "^1.1.0",
     "@radix-ui/react-avatar": "^1.0.4",
