@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "prisma generate --no-engine && next dev",
+    "build": "prisma generate --no-engine && prisma db push && prisma db seed && next build",
     "start": "next start",
     "lint": "next lint",
     "prettier:format": "prettier --write .",
@@ -12,8 +12,7 @@
     "eslint:format": "eslint src --fix",
     "prepare": "husky install",
     "migrate": "prisma migrate dev",
-    "postmigrate": "npx @snaplet/seed sync",
-    "postinstall": "prisma generate --no-engine && prisma migrate deploy"
+    "postmigrate": "npx @snaplet/seed sync"
   },
   "prisma": {
     "seed": "npx tsx prisma/seed/seed.ts"
