@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "prisma generate --no-engine && next dev",
-    "build": "prisma generate --no-engine && prisma db push && prisma db seed && next build",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "prettier:format": "prettier --write .",
@@ -12,7 +12,7 @@
     "eslint:format": "eslint src --fix",
     "prepare": "husky install",
     "migrate": "prisma migrate dev",
-    "postmigrate": "npx @snaplet/seed sync"
+    "postinstall": "prisma generate --no-engine && prisma migrate deploy"
   },
   "prisma": {
     "seed": "npx tsx prisma/seed/seed.ts"
@@ -49,8 +49,6 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@snaplet/copycat": "^5.0.0",
-    "@snaplet/seed": "^0.97.20",
     "@types/node": "^20.14.5",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
@@ -78,8 +76,5 @@
       "npm run prettier:format",
       "npm run eslint:format"
     ]
-  },
-  "@snaplet/seed": {
-    "config": "prisma/seed/seed.config.ts"
   }
 }
