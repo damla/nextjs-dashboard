@@ -23,6 +23,7 @@
           "/^@/styles/",
           "/^@/components/",
           "/^@/lib/",
+          "/^prisma/",
           ["parent", "sibling", "index"]
         ],
         "alphabetize": {
