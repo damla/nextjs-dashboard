@@ -89,7 +89,11 @@ export const paymentsTableColumns: ColumnDef<Payment>[] = [
         </Button>
       );
     },
-    cell: ({ row }) => <div>{new Date(row.getValue('createdAt')).toLocaleString()}</div>
+    cell: ({ row }) => {
+      const date: Date = row.getValue('createdAt');
+
+      return <div>{date.toLocaleString()}</div>;
+    }
   },
   {
     id: 'actions',
