@@ -9,25 +9,12 @@ import {
 } from '@/components/ui/navigation-menu';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 
+import { routeList } from './data';
+import { RouteProps } from './types';
+
 import { GitHubLogoIcon } from '@radix-ui/react-icons';
 import { DropletIcon, Menu } from 'lucide-react';
 import { useState } from 'react';
-
-interface RouteProps {
-  href: string;
-  label: string;
-}
-
-const routeList: RouteProps[] = [
-  {
-    href: '#how-it-works',
-    label: 'How It Works'
-  },
-  {
-    href: '#faq',
-    label: 'FAQ'
-  }
-];
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
