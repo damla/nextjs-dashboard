@@ -4,10 +4,14 @@
 
 - NextJS
 - Schadcn/ui
+- Tanstack Table
 - Husky
 - Prettier
 - Eslint
 - Tailwindcss
+- Prisma ORM
+- Postgres
+- Supabase
 
 ## Getting Started
 
