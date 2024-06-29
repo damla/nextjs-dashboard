@@ -10,8 +10,7 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
 
-import { Payment } from './types';
-
+import { Payment } from '@prisma/client';
 import { DotsHorizontalIcon } from '@radix-ui/react-icons';
 
 interface Props {

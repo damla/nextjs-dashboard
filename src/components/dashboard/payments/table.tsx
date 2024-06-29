@@ -24,8 +24,7 @@ import {
   TableRow
 } from '@/components/ui/table';
 
-import { Payment } from './types';
-
+import { Payment } from '@prisma/client';
 import { DoubleArrowLeftIcon, DoubleArrowRightIcon } from '@radix-ui/react-icons';
 import {
   ColumnDef,
@@ -77,8 +76,8 @@ export const Table = ({ columns, data }: Props) => {
       <div className="flex items-center py-4">
         <Input
           placeholder="Filter emails..."
-          value={(table.getColumn('email')?.getFilterValue() as string) ?? ''}
-          onChange={(event) => table.getColumn('email')?.setFilterValue(event.target.value)}
+          value={(table.getColumn('userEmail')?.getFilterValue() as string) ?? ''}
+          onChange={(event) => table.getColumn('userEmail')?.setFilterValue(event.target.value)}
           className="max-w-sm bg-background"
         />
         <div className="ml-auto flex items-center gap-2">

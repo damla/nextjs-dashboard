@@ -6,8 +6,8 @@ import { Checkbox } from '@/components/ui/checkbox';
 
 import { formatted, getVariant } from './helpers';
 import { TableActions } from './table-actions';
-import { Payment } from './types';
 
+import { Payment } from '@prisma/client';
 import { CaretSortIcon } from '@radix-ui/react-icons';
 import { ColumnDef } from '@tanstack/react-table';
 
@@ -35,10 +35,20 @@ export const paymentsTableColumns: ColumnDef<Payment>[] = [
   },
   {
     accessorKey: 'status',
-    header: 'Status',
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+        >
+          Status
+          <CaretSortIcon className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
     cell: ({ row }) => (
       <Badge
-        className="inline-flex w-20 items-center justify-center capitalize"
+        className="inline-flex w-24 items-center justify-center"
         variant={getVariant(row.getValue('status'))}
       >
         {row.getValue('status')}
@@ -46,7 +56,7 @@ export const paymentsTableColumns: ColumnDef<Payment>[] = [
     )
   },
   {
-    accessorKey: 'email',
+    accessorKey: 'userEmail',
     header: ({ column }) => {
       return (
         <Button
@@ -57,15 +67,29 @@ export const paymentsTableColumns: ColumnDef<Payment>[] = [
           <CaretSortIcon className="ml-2 h-4 w-4" />
         </Button>
       );
-    },
-    cell: ({ row }) => <div className="lowercase">{row.getValue('email')}</div>
+    }
   },
   {
     accessorKey: 'amount',
-    header: () => <div className="text-right">Amount</div>,
+    header: () => <div className="text-left">Amount</div>,
     cell: ({ row }) => (
-      <div className="text-right font-medium">{formatted(row.getValue('amount'))}</div>
+      <div className="text-left font-medium">{formatted(row.getValue('amount'))}</div>
     )
+  },
+  {
+    accessorKey: 'createdAt',
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+        >
+          Created At
+          <CaretSortIcon className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+    cell: ({ row }) => <div>{new Date(row.getValue('createdAt')).toLocaleString()}</div>
   },
   {
     id: 'actions',
