@@ -18,7 +18,7 @@ type Props = Readonly<{
 
 export default function RootLayout({ children }: Props) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="overflow-x-hidden">
       <body className={inter.className}>
         <MainProvider
           attribute="class"

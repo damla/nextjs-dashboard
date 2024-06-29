@@ -1,19 +1,19 @@
-import { Payment } from './types';
+import { Payment, Status } from '@prisma/client';
 
 export const getVariant = (status: Payment['status']) => {
   switch (status) {
-    case 'pending':
+    case Status.PENDING:
       return 'default';
-    case 'processing':
+    case Status.PROCESSING:
       return 'outline';
-    case 'success':
+    case Status.SUCCESS:
       return 'success';
-    case 'failed':
+    case Status.FAILED:
       return 'destructive';
   }
 };
 
-export const formatted = (amount: string) => {
+export const formatted = (amount: Payment['amount']) => {
   const value = parseFloat(amount);
 
   return new Intl.NumberFormat('en-US', {
