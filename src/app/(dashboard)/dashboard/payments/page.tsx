@@ -1,5 +1,5 @@
-import { paymentsTableColumns } from '@/components/dashboard/payments/columns';
-import { Table } from '@/components/dashboard/payments/table';
+import { paymentsTableColumns } from '@/components/dashboard/payments/table/columns';
+import { Table } from '@/components/dashboard/payments/table/table';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 import { fetchPayments } from '@/lib/data';
@@ -12,7 +12,7 @@ export default async function Payments() {
   const payments = await fetchPayments();
 
   return (
-    <div className="grid grid-cols-1 gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-4">
+    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-4">
       <Card className="lg:col-span-2 xl:col-span-4" x-chunk="dashboard-05-chunk-0">
         <CardHeader>
           <CardTitle>Your Payments</CardTitle>
