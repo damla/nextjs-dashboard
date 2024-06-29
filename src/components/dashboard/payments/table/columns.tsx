@@ -92,6 +92,7 @@ export const paymentsTableColumns: ColumnDef<Payment>[] = [
     cell: ({ row }) => {
       const date: Date = row.getValue('createdAt');
 
+      // https://stackoverflow.com/a/76826228
       return <div suppressHydrationWarning>{date.toLocaleString()}</div>;
     }
   },
