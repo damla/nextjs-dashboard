@@ -1,3 +1,11 @@
+import { Hero } from '@/components/marketing/layout/hero/hero';
+import { Navbar } from '@/components/marketing/layout/navbar';
+
 export default function Home() {
-  return <div className="flex min-h-screen w-full flex-col bg-muted/40">home</div>;
+  return (
+    <>
+      <Navbar />
+      <Hero />
+    </>
+  );
 }
