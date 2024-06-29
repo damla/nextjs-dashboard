@@ -1,39 +1,7 @@
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 
-import { GiftIcon, MapIcon, MedalIcon, PlaneIcon } from 'lucide-react';
-
-interface FeatureProps {
-  icon: JSX.Element;
-  title: string;
-  description: string;
-}
-
-const features: FeatureProps[] = [
-  {
-    icon: <MedalIcon />,
-    title: 'Accessibility',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum'
-  },
-  {
-    icon: <MapIcon />,
-    title: 'Community',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum'
-  },
-  {
-    icon: <PlaneIcon />,
-    title: 'Scalability',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum'
-  },
-  {
-    icon: <GiftIcon />,
-    title: 'Gamification',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum'
-  }
-];
+import { features } from './data';
+import { FeatureProps } from './types';
 
 export const HowItWorks = () => {
   return (
