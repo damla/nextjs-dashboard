@@ -73,14 +73,14 @@ export const Table = ({ columns, data }: Props) => {
 
   return (
     <div className="w-full">
-      <div className="flex items-center py-4">
+      <div className="flex flex-col gap-2 py-4 sm:flex-row sm:gap-0">
         <Input
           placeholder="Filter emails..."
           value={(table.getColumn('userEmail')?.getFilterValue() as string) ?? ''}
           onChange={(event) => table.getColumn('userEmail')?.setFilterValue(event.target.value)}
           className="max-w-sm bg-background"
         />
-        <div className="ml-auto flex items-center gap-2">
+        <div className="mr-auto flex items-center gap-2 sm:ml-auto sm:mr-0">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="ml-auto">
@@ -149,18 +149,14 @@ export const Table = ({ columns, data }: Props) => {
           </TableBody>
         </TableSchadcn>
       </div>
-      <div className="flex items-center justify-end space-x-2 py-4">
+      <div className="flex flex-col items-center justify-end gap-2 py-4 sm:flex-row sm:gap-0 sm:space-x-2">
         <div className="flex-1 text-sm text-muted-foreground">
           {table.getFilteredSelectedRowModel().rows.length} of{' '}
           {table.getFilteredRowModel().rows.length} row(s) selected.
         </div>
-        <div className="flex items-center justify-between px-2">
-          <div className="flex-1 text-sm text-muted-foreground">
-            {table.getFilteredSelectedRowModel().rows.length} of{' '}
-            {table.getFilteredRowModel().rows.length} row(s) selected.
-          </div>
-          <div className="flex items-center space-x-6 lg:space-x-8">
-            <div className="flex items-center space-x-2">
+        <div className="flex flex-col items-center justify-between px-2 sm:flex-row">
+          <div className="flex flex-col items-center gap-2 sm:flex-row sm:gap-0 sm:space-x-6 lg:space-x-8">
+            <div className="flex items-center gap-2 sm:gap-0 sm:space-x-2">
               <p className="text-sm font-medium">Rows per page</p>
               <Select
                 value={`${table.getState().pagination.pageSize ?? 10}`}
@@ -183,7 +179,7 @@ export const Table = ({ columns, data }: Props) => {
             <div className="flex w-[100px] items-center justify-center text-sm font-medium">
               Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center sm:space-x-2">
               <Button
                 variant="outline"
                 className="hidden h-8 w-8 p-0 lg:flex"
