@@ -77,6 +77,25 @@ export const paymentsTableColumns: ColumnDef<Payment>[] = [
     )
   },
   {
+    accessorKey: 'createdAt',
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+        >
+          Created At
+          <CaretSortIcon className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+    cell: ({ row }) => {
+      const date: Date = row.getValue('createdAt');
+
+      return <div suppressHydrationWarning>{date.toLocaleString()}</div>;
+    }
+  },
+  {
     id: 'actions',
     enableHiding: false,
     cell: ({ row }) => <TableActions paymentId={row.original.id} />
