@@ -13,8 +13,8 @@ interface FAQProps {
 
 const FAQList: FAQProps[] = [
   {
-    question: 'Is this template free?',
-    answer: 'Yes. It is a free ChadcnUI template.',
+    question: 'Is this landing page free?',
+    answer: 'Thanks to leoMirandaa, it is a free template.',
     value: 'item-1'
   },
   {
@@ -55,7 +55,6 @@ export const FAQ = () => {
         {FAQList.map(({ question, answer, value }: FAQProps) => (
           <AccordionItem key={value} value={value}>
             <AccordionTrigger className="text-left">{question}</AccordionTrigger>
-
             <AccordionContent>{answer}</AccordionContent>
           </AccordionItem>
         ))}
