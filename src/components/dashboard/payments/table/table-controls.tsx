@@ -21,6 +21,7 @@ export const TableControls = ({ table }: Props) => {
   return (
     <div className="flex flex-col gap-2 py-4 sm:flex-row sm:gap-0">
       <Input
+        name="filter-emails"
         placeholder="Filter emails..."
         value={(table.getColumn('userEmail')?.getFilterValue() as string) ?? ''}
         onChange={(event) => table.getColumn('userEmail')?.setFilterValue(event.target.value)}
