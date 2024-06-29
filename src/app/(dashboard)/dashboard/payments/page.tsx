@@ -22,11 +22,9 @@ export default async function Payments() {
           </CardDescription>
         </CardHeader>
       </Card>
-      <div className="overflow-auto lg:col-span-2 xl:col-span-4">
-        <Suspense fallback={<Loading />}>
-          <Table data={payments} columns={paymentsTableColumns} />
-        </Suspense>
-      </div>
+      <Suspense fallback={<Loading />}>
+        <Table data={payments} columns={paymentsTableColumns} />
+      </Suspense>
     </div>
   );
 }
