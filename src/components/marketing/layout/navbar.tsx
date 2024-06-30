@@ -1,5 +1,6 @@
 'use client';
 
+import { SignInGithubButton } from '@/components/authentication/sign-in/sign-in-github-button';
 import { ModeToggle } from '@/components/common/mode-toggle';
 import { buttonVariants } from '@/components/ui/button';
 import {
@@ -12,7 +13,6 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/co
 import { routeList } from './data';
 import { RouteProps } from './types';
 
-import { GitHubLogoIcon } from '@radix-ui/react-icons';
 import { DropletIcon, Menu } from 'lucide-react';
 import { useState } from 'react';
 
@@ -35,10 +35,9 @@ export const Navbar = () => {
               <SheetTrigger className="px-2">
                 <Menu className="flex h-5 w-5 md:hidden" onClick={() => setIsOpen(true)} />
               </SheetTrigger>
-
               <SheetContent side="left">
                 <SheetHeader>
-                  <SheetTitle className="text-xl font-bold">Dashboard Appt</SheetTitle>
+                  <SheetTitle className="text-xl font-bold">Dashboard App</SheetTitle>
                 </SheetHeader>
                 <nav className="mt-4 flex flex-col items-center justify-center gap-2">
                   {routeList.map(({ href, label }: RouteProps) => (
@@ -52,17 +51,7 @@ export const Navbar = () => {
                       {label}
                     </a>
                   ))}
-                  <a
-                    rel="noreferrer noopener"
-                    href="https://github.com/damla/nextjs-dashboard"
-                    target="_blank"
-                    className={`w-[110px] border ${buttonVariants({
-                      variant: 'secondary'
-                    })}`}
-                  >
-                    <GitHubLogoIcon className="mr-2 h-5 w-5" />
-                    Github
-                  </a>
+                  <SignInGithubButton />
                 </nav>
               </SheetContent>
             </Sheet>
@@ -83,15 +72,7 @@ export const Navbar = () => {
             ))}
           </nav>
           <div className="hidden gap-2 md:flex">
-            <a
-              rel="noreferrer noopener"
-              href="https://github.com/damla/nextjs-dashboard"
-              target="_blank"
-              className={`border ${buttonVariants({ variant: 'ghost' })}`}
-            >
-              <GitHubLogoIcon className="mr-2 h-5 w-5" />
-              Github
-            </a>
+            <SignInGithubButton />
             <ModeToggle />
           </div>
         </NavigationMenuList>
